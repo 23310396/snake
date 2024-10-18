@@ -1,0 +1,43 @@
+@startuml Diagrama
+class Persona
+class Foco{
+    - Bool encendido
+    + Encender()
+    + Apagar()
+}
+ class Juego
+ class Mapa
+ class Jugador 
+ class Serpiente
+ class Eslabon
+ class Cabeza
+ class Fruta
+ class Bloque
+ class Colisionable
+
+ Juego "1" *-- "1" Jugador
+ Jugador "1" o-- "1" Serpiente
+ Serpiente "1" *-- "*" Eslabon
+ Serpiente "1" *-- "1" Cabeza
+ Cabeza --|> Eslabon
+ Cabeza "1" o-- "1" Fruta
+ Eslabon --|> Colisionable
+
+ Pared --|> Colisionable
+ Mapa "1" *-- "4" Pared
+
+ class Lienzo
+ class Dibujo
+ class Pintor
+
+ Lienzo "1" *-- "*" Dibujo
+ Pintor o-- Dibujo
+ Pintor o-- Lienzo
+ Eslabon --|> Dibujo
+ Juego o-- Pintor
+ Mapa --|> Dibujo
+ Fruta --|> Dibujo
+
+
+Persona o-- Foco
+@enduml
